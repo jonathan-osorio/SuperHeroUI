@@ -1,0 +1,30 @@
+<h1 class="text-center">Super Heroes</h1>
+<hr>
+<div *ngIf="superHeroList | async as heroes" class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let hero of heroes">
+            <div class="card-container" (click)="hero.isFlipped = !hero.isFlipped" [class.flipped]="hero.isFlipped">
+                <div class="card-flip">
+                    <!-- Front side of the card -->
+                    <div class="card front">
+                        <img src="{{hero.profilePictureURL}}" alt="{{hero.alias}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{hero.name}} | {{hero.alias}}</h5>
+                        </div>
+                    </div>
+                    <!-- Back side of the card -->
+                    <div class="card back">
+                        <div class="card-body">
+                            <h5 class="card-title">{{hero.alias}}</h5>
+                            <p><strong>Birthday:</strong> {{hero.birthday}}</p>
+                            <p><strong>Height:</strong> {{hero.height}} cm</p>
+                            <p><strong>Individuality:</strong> <strong>{{hero.individuality}}</strong>: {{hero.individualityDescription}}</p>
+                            <p><strong>Likes:</strong> {{hero.likes}}</p>
+                            <p><strong>Faction:</strong> {{hero.faction}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
